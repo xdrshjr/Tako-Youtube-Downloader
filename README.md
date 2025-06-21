@@ -4,6 +4,7 @@ A high-quality Python script for downloading YouTube videos with proper error ha
 
 ## Features
 
+### Core Features
 - **URL Validation**: Supports various YouTube URL formats
 - **Quality Selection**: Choose from different video qualities (best, worst, 720p, 1080p, etc.)
 - **Format Support**: Download in MP4, WebM, or MKV formats
@@ -11,7 +12,21 @@ A high-quality Python script for downloading YouTube videos with proper error ha
 - **Progress Tracking**: Real-time download progress display
 - **Error Handling**: Robust error handling with retry mechanism
 - **Logging**: Comprehensive logging system
-- **Command Line Interface**: Easy-to-use CLI
+
+### GUI Features (Phase 3)
+- **Modern Desktop Interface**: Built with CustomTkinter for a native look and feel
+- **Elegant Design**: Clean, professional interface following UX best practices
+- **Theme Support**: Dark and light themes with automatic system detection
+- **Real-time Video Info**: Preview video details, duration, views, and thumbnails
+- **Visual Progress Tracking**: Animated progress bars with speed, size, and ETA
+- **Interactive Settings**: Easy-to-use controls for all download options
+- **Integrated Logging**: Built-in log viewer with filtering and export
+- **Keyboard Shortcuts**: Efficient navigation with hotkeys
+- **Responsive Layout**: Adapts to different screen sizes and resolutions
+
+### Interface Options
+- **GUI Application**: Modern desktop interface (recommended)
+- **Command Line Interface**: Traditional CLI for automation and scripting
 
 ## Phase 1 Implementation Status
 
@@ -24,6 +39,12 @@ A high-quality Python script for downloading YouTube videos with proper error ha
 
 ## Installation
 
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package installer)
+
+### Quick Installation
+
 1. Clone the repository:
 ```bash
 git clone <repository-url>
@@ -35,12 +56,38 @@ cd youtube-downloader
 pip install -r requirements.txt
 ```
 
-3. For development:
+3. For development (optional):
 ```bash
 pip install -r requirements-dev.txt
 ```
 
+### GUI Dependencies
+The GUI application requires additional packages that are automatically included in `requirements.txt`:
+- `customtkinter>=5.2.0` - Modern UI framework
+- `pillow>=10.0.0` - Image processing for thumbnails
+
+### Quick Start
+After installation, you can immediately start the GUI:
+- **Windows**: Double-click `run_gui.bat`
+- **All platforms**: Run `python run_gui.py`
+- **Command line**: Run `python -m src.youtube_downloader.gui_main`
+
 ## Usage
+
+### Desktop GUI Application (Recommended)
+
+Launch the modern desktop GUI:
+```bash
+python -m src.youtube_downloader.gui_main
+```
+
+The GUI provides:
+- **Modern Interface**: Clean, intuitive design with dark/light theme support
+- **Real-time Progress**: Live download progress with speed and ETA
+- **Video Information**: Preview video details before downloading
+- **Easy Settings**: Point-and-click configuration for quality, format, and output
+- **Comprehensive Logging**: Built-in log viewer with filtering
+- **Drag & Drop**: Easy URL input with clipboard integration
 
 ### Command Line Interface
 
@@ -172,8 +219,8 @@ MIT License - see LICENSE file for details.
 ## Development Status
 
 - **Phase 1**: ✅ Core functionality (URL validation, downloading, configuration)
-- **Phase 2**: 🔄 Enhanced features (progress tracking, error handling, logging)
-- **Phase 3**: 📋 User interface (CLI, batch processing)
+- **Phase 2**: ✅ Enhanced features (progress tracking, error handling, logging)
+- **Phase 3**: ✅ User interface (GUI desktop application)
 
 ## Contributing
 

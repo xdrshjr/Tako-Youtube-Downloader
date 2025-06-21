@@ -8,19 +8,32 @@ This package contains the core business logic components:
 - SearchEngine: Provides YouTube video search functionality
 - VideoFilter: Filters search results based on criteria
 - SearchConfigManager: Manages search configuration
+- BatchDownloadManager: Manages batch download operations
 """
 
 from .validator import URLValidator
-from .downloader import VideoDownloader  
-from .config import ConfigManager
+from .downloader import VideoDownloader, DownloadResult, VideoInfo
+from .config import ConfigManager, DownloadConfig
 from .search_engine import SearchEngine, SearchError, NetworkSearchError, YouTubeSearchError
 from .video_filter import VideoFilter, VideoSearchResult
 from .search_config import SearchConfig, FilterConfig, SearchConfigManager
+from .batch_manager import (
+    BatchDownloadManager,
+    BatchConfig,
+    BatchProgress,
+    VideoDownloadTask,
+    BatchStatus,
+    VideoDownloadStatus,
+    BatchDownloadError
+)
 
 __all__ = [
     "URLValidator", 
-    "VideoDownloader", 
+    "VideoDownloader",
+    "DownloadResult",
+    "VideoInfo", 
     "ConfigManager",
+    "DownloadConfig",
     "SearchEngine",
     "SearchError",
     "NetworkSearchError", 
@@ -29,5 +42,12 @@ __all__ = [
     "VideoSearchResult",
     "SearchConfig",
     "FilterConfig",
-    "SearchConfigManager"
+    "SearchConfigManager",
+    "BatchDownloadManager",
+    "BatchConfig",
+    "BatchProgress",
+    "VideoDownloadTask",
+    "BatchStatus",
+    "VideoDownloadStatus",
+    "BatchDownloadError"
 ] 

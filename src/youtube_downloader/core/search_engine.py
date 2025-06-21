@@ -302,9 +302,10 @@ class SearchEngine:
                 return f"{year}-{month}-{day}"
             else:
                 # Try to parse as ISO date
+                from datetime import datetime
                 datetime.fromisoformat(date_str)
                 return date_str
-        except (ValueError, TypeError):
+        except (ValueError, TypeError, NameError):
             self._logger.warning(f"Invalid upload date format: {upload_date}")
             return "1970-01-01"  # Default fallback
     

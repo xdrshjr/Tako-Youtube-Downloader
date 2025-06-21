@@ -1,0 +1,15 @@
+README.md
+setup.py
+src/youtube_downloader/__init__.py
+src/youtube_downloader/main.py
+src/youtube_downloader.egg-info/PKG-INFO
+src/youtube_downloader.egg-info/SOURCES.txt
+src/youtube_downloader.egg-info/dependency_links.txt
+src/youtube_downloader.egg-info/entry_points.txt
+src/youtube_downloader.egg-info/requires.txt
+src/youtube_downloader.egg-info/top_level.txt
+src/youtube_downloader/core/__init__.py
+src/youtube_downloader/core/config.py
+src/youtube_downloader/core/downloader.py
+src/youtube_downloader/core/validator.py
+src/youtube_downloader/utils/__init__.py

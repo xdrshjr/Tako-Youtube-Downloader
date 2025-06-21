@@ -1,0 +1,2 @@
+[console_scripts]
+youtube-downloader = youtube_downloader.main:main

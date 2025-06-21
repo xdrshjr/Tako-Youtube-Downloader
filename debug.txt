@@ -1,0 +1,1 @@
+python -m src.youtube_downloader.main "https://www.youtube.com/shorts/FwYhFQHUn9g" --quality 720p --format mp4 --output ./my_downloads

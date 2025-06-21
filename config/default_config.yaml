@@ -1,0 +1,21 @@
+download:
+  quality: "best"          # 视频质量: best, worst, 720p, 1080p
+  format: "mp4"           # 输出格式: mp4, webm, mkv
+  audio_format: "mp3"     # 音频格式: mp3, aac, opus
+  
+output:
+  directory: "./downloads" # 输出目录
+  naming_pattern: "{title}-{id}.{ext}"  # 文件命名模式
+  create_subdirs: false   # 是否创建子目录
+  
+network:
+  concurrent_downloads: 3  # 并发下载数
+  retry_attempts: 3       # 重试次数
+  timeout: 30             # 超时时间(秒)
+  rate_limit: null        # 速率限制
+
+logging:
+  level: "INFO"           # 日志级别
+  file: "downloader.log" # 日志文件
+  max_size: "10MB"       # 最大日志文件大小
+  backup_count: 5        # 保留日志文件数 

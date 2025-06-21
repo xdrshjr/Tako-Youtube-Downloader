@@ -2,6 +2,9 @@
 
 A high-quality Python script for downloading YouTube videos with proper error handling, configuration management, and progress tracking.
 
+
+![img.png](img.png)
+
 ## Features
 
 ### Core Features

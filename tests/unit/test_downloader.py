@@ -133,13 +133,14 @@ class TestVideoDownloader:
         assert downloader.config.output_directory == "./test_downloads"
     
     @patch('youtube_downloader.core.downloader.yt_dlp.YoutubeDL')
-    def test_yt_dlp_options_configuration(self, mock_yt_dlp, downloader):
+    def test_yt_dlp_options_configuration(self, mock_yt_dlp, downloader, mock_video_info):
         """Test that yt-dlp options are configured correctly."""
         url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         
-        # Mock to prevent actual download
+        # Mock to allow info extraction but prevent actual download
         mock_ydl = Mock()
-        mock_ydl.extract_info.side_effect = Exception("Test exception")
+        mock_ydl.extract_info.return_value = mock_video_info
+        mock_ydl.download.side_effect = Exception("Test exception")
         mock_yt_dlp.return_value.__enter__.return_value = mock_ydl
         
         try:
@@ -147,13 +148,15 @@ class TestVideoDownloader:
         except:
             pass
         
-        # Verify yt-dlp was called with correct options
-        mock_yt_dlp.assert_called_once()
-        call_args = mock_yt_dlp.call_args[0][0]  # Get the options dict
+        # Verify yt-dlp was called multiple times (info + download)
+        assert mock_yt_dlp.call_count >= 2
         
-        assert 'outtmpl' in call_args
-        assert call_args['format'] == 'best[height<=720]'
-        assert call_args['extract_flat'] is False
+        # Check the download call (last call) for outtmpl
+        last_call_args = mock_yt_dlp.call_args[0][0]  # Get the options dict from last call
+        
+        assert 'outtmpl' in last_call_args
+        assert last_call_args['format'] == 'best[height<=720]'
+        assert last_call_args['extract_flat'] is False
     
     def test_cancel_download(self, downloader):
         """Test download cancellation functionality."""

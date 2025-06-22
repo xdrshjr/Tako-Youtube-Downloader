@@ -2,3 +2,6 @@ python -m src.youtube_downloader.main "https://www.youtube.com/shorts/FwYhFQHUn9
 
 
 python -m src.youtube_downloader.main "https://www.youtube.com/shorts/FwYhFQHUn9g" --quality 720p --format mp4 --output ./test_downloads
+
+
+npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --yes

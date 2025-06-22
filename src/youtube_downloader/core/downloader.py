@@ -62,6 +62,7 @@ class VideoInfo:
     upload_date: str
     view_count: int
     like_count: Optional[int] = None
+    thumbnail_url: Optional[str] = None
     formats: Optional[list] = None
 
 
@@ -623,6 +624,7 @@ class VideoDownloader:
             upload_date=info.get('upload_date', ''),
             view_count=info.get('view_count', 0),
             like_count=info.get('like_count'),
+            thumbnail_url=info.get('thumbnail'),
             formats=info.get('formats', [])
         )
     

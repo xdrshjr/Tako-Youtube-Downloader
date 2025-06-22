@@ -112,4 +112,18 @@ class HealthResponse(BaseModel):
     """Response model for health check."""
     status: str = "healthy"
     version: str = "1.0.0"
-    timestamp: datetime = Field(default_factory=datetime.utcnow) 
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+
+
+class DownloadStatusResponse(BaseResponse):
+    """Response model for download status."""
+    task_id: str
+    download_status: StatusEnum
+    download_url: Optional[str] = None
+    output_path: Optional[str] = None
+    file_size: Optional[int] = None
+    progress: float = 0.0
+    error_message: Optional[str] = None
+    video_title: Optional[str] = None
+    started_at: Optional[datetime] = None
+    completed_at: Optional[datetime] = None 

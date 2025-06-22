@@ -49,8 +49,8 @@ echo Dependencies OK
 echo.
 
 REM Set default values
-set HOST=0.0.0.0
-set PORT=8000
+set HOST=localhost
+set PORT=8008
 set MODE=production
 
 REM Parse command line arguments

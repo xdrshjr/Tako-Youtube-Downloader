@@ -245,4 +245,51 @@ MIT License - see LICENSE file for details.
 
 Check the `downloader.log` file for detailed error information and debugging.
 
-For more help, please create an issue in the repository. 
+For more help, please create an issue in the repository.
+
+### Download Status Tracking
+
+The API now includes comprehensive download status tracking:
+
+#### Download Status Endpoint
+- `GET /api/v1/download/status/{task_id}` - Get detailed status of a download task
+
+The download status endpoint returns:
+- Current download status (pending, in_progress, completed, error, cancelled)
+- Progress percentage
+- Video information (title, URL)
+- File information (output path, file size) when completed
+- Error details if the download failed
+- Timestamps for start and completion times
+
+#### Status Values
+- `pending` - Download task created but not started
+- `in_progress` - Download is currently active
+- `completed` - Download finished successfully
+- `error` - Download failed with error details
+- `cancelled` - Download was cancelled by user
+
+#### Example Usage
+```bash
+# Get status of a download
+curl "http://localhost:8000/api/v1/download/status/your-task-id"
+```
+
+#### Response Example
+```json
+{
+  "status": "success",
+  "message": "Download status retrieved successfully",
+  "task_id": "abc123-def456",
+  "download_status": "completed",
+  "download_url": "https://www.youtube.com/watch?v=example",
+  "video_title": "Example Video",
+  "progress": 100.0,
+  "output_path": "./downloads/Example Video-abc123.mp4",
+  "file_size": 15728640,
+  "started_at": "2024-01-15T10:30:00Z",
+  "completed_at": "2024-01-15T10:32:45Z"
+}
+```
+
+### API Endpoints 

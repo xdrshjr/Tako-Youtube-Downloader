@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 
-from .routes import video_router, search_router, batch_router, config_router
+from .routes import video_router, search_router, batch_router, config_router, download_router
 from .models.responses import HealthResponse, ErrorResponse, StatusEnum
 
 
@@ -100,6 +100,7 @@ app.include_router(video_router)
 app.include_router(search_router)
 app.include_router(batch_router)
 app.include_router(config_router)
+app.include_router(download_router)
 
 
 # Additional utility endpoints
@@ -133,6 +134,9 @@ async def get_api_info():
                 "get": "GET /api/v1/config/ - Get configuration",
                 "defaults": "GET /api/v1/config/defaults - Get default options"
             }
+        },
+        "download": {
+            "status": "GET /api/v1/download/status/{task_id} - Get download status"
         },
         "documentation": {
             "swagger": "/docs",
